@@ -114,16 +114,16 @@
               
                 <h1 id="beam-calculations">Beam Calculations</h1>
 <hr />
-<p>The Solenoid is a lense inside the LCLS that is used to correct the 
-momentum of the individual electrons that compose the electron beam. 
+<p>The Solenoid is a type of magnet that is used to correct the 
+momentum of the electron beam. 
 This is crucial to maintaining the size and shape of the beam. </p>
 <hr />
 <h2 id="solenoid-calculation-package">Solenoid Calculation Package</h2>
-<p>The goal of this utility is to collect data from the electron beam 
-as it passes through the solenoid and use that data to calculate the 
-best position of the solenoid for what is needed. This package, 
+<p>The goal of this utility is to collect electron beam data 
+after it passes through the solenoid and use that data to calculate the 
+best position of the solenoid. This package, 
 found <a href="https://github.com/slaclab/lcls-tools/tree/python3devel/lcls_tools/beam_calcs/sol_calc">here</a>, 
-is currently under development. </p>
+is not finished, and currently not under development. </p>
 <p>Import and Initialize Solenoid calc. data object </p>
 <pre><code>&gt;&gt;&gt; from sol_calc import SolCalc as S
 &gt;&gt;&gt; s = S(0.05, 0.5, 0.1)
@@ -161,10 +161,7 @@ Get the current K value
 The final function will then use the arrays to offset the previous solenoid calculation. </p>
 <hr />
 <h2 id="solenoid-calculation-test">Solenoid Calculation Test</h2>
-<p>This utility will test the functions in the solenoid calculation package 
-to ensure that the package will complete it's intended purpose. The full test can be found <a href="https://github.com/slaclab/lcls-tools/blob/master/lcls_tools/beam_calcs/sol_calc/sol_calc_test.py">here</a></p>
-<p>More packages to come.</p>
-              
+
             </div>
           </div>
           <footer>
