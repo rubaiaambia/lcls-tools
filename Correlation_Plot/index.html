@@ -122,24 +122,21 @@
               
                 <h1 id="correlation-plot">Correlation Plot</h1>
 <hr />
-<p>These tools are used to find a relationship between the size of the beam 
-and the magnet strength. The sections below contains packages that are
+<p>Correlation plots are used to find the relationship between two or more PV's (process variables).
+  For example, beam sizes and the magnet strengths. The sections below contains packages that are
 used to view and analyze the correlation plots as well as test if that 
 code works correctly. </p>
 <hr />
 <h2 id="how-to-view-a-correlation-plot">How to view a Correlation Plot</h2>
-<p>The purpose of this package is to unpack a .mat file and allow the
-examination of the correlation plots. The tool currently has hard coded 
-paths specific to the author of the code and will need to be updated to 
-suit anyone. This package may soon be available at
- <a href="https://github.com/slaclab/lcls-tools/tree/master/lcls_tools/cor_plot">GitHub.com</a>. </p>
+<p>This code unpacks a .mat file and allows the
+examination of the correlation plots. 
 <hr />
 <h3 id="useful-information">Useful Information</h3>
 <ul>
 <li>Uses cor_plot tools from lcls-tools.</li>
 <li>Loads data and plots a correlation plot from the data.</li>
 <li>Error bars indicate the deviance from the mean at each x value.</li>
-<li>x values (magnet strength) are found using the tool ctrl_vals.</li>
+<li>x values (i.e. magnet strength) are found using the tool ctrl_vals.</li>
 <li>At each x value, some number of iterations will be taken. </li>
 </ul>
 <p>A specific fit and beam name can be chosen from the following lists:
@@ -151,7 +148,7 @@ This new array is used for the y values (beam size).
 The x array is plotted against the y array, along with error bars.</p>
 <hr />
 <h2 id="correlation-plot-analysis">Correlation Plot Analysis</h2>
-<p>This utility, found <a href="https://github.com/slaclab/lcls-tools/blob/python3devel/lcls_tools/cor_plot/cor_plot_mat_scan.py">here</a>, can take a cor plot .mat file and turn it into a python data object.  The goal is to present the data from a cor plot in a meaningful way. Below shows an example of the test that was used for theoriginal package. The full test can be found <a href="https://github.com/slaclab/lcls-tools/blob/python3devel/lcls_tools/cor_plot/cor_plot_mat_scan_test.py">here</a>.</p>
+<p>This utility, found <a href="https://github.com/slaclab/lcls-tools/blob/python3devel/lcls_tools/cor_plot/cor_plot_mat_scan.py">here</a>, can take a cor plot .mat file and turn it into a python data object. Below is an example of the package test; the full test can be found <a href="https://github.com/slaclab/lcls-tools/blob/python3devel/lcls_tools/cor_plot/cor_plot_mat_scan_test.py">here</a>.</p>
 <p>Example: 'test_scan.mat'</p>
 <p>Import and Initialize cor plot data object</p>
 <pre><code>from cor_plot_mat_scan import CorPlotMatScan as CPMS
@@ -177,7 +174,7 @@ cpms = CPMS('test_scan.mat')
 2
 </code></pre>
 
-<p>Access Beam Data.  This is very tricky and could use some cleanup.  This is all the metadata associated with the scan and goes by the nature of cpms.beam[iteration][sample][fit].  The fits are in the following order FIT = ['Gaussian', 'Asymmetric', 'Super', 'RMS', 'RMS cut peak', 'RMS cut area', 'RMS floor'].</p>
+<p>Access Beam Data. The beam data is stored by iteration, sample, and fit: cpms.beam[iteration][sample][fit].  The fits are in the following order FIT = ['Gaussian', 'Asymmetric', 'Super', 'RMS', 'RMS cut peak', 'RMS cut area', 'RMS floor'].</p>
 <p>Example, say I want to get a specific field from beam_names.  Say 'profx' for iteration 3, sample 2 and 'RMS cut peak' (5, index of 4):</p>
 <pre><code>&gt;&gt;&gt; cpms.beam[2][1][4]['profx']
 array([[ -8.04000000e+03,  -8.02392000e+03,  -8.00784000e+03, ...,
@@ -230,7 +227,6 @@ The remaining functions unpack the data in the .mat file
 </code></pre>
 
 <h2 id="note">Note</h2>
-<p>As you can see, this whole beam property needs a lot of cleanup.  I do not even know what profx is, maybe an x projection/histogram of the profile monitor?  Your guess is as good as mine.  Good luck!</p>
               
             </div>
           </div>
